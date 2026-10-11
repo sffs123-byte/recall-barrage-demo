@@ -1,7 +1,7 @@
-/* Original Recall Rush sound design + bounded Canvas effects. No study data access. */
+/* Original Recall Rush sound design + bounded Canvas effects. No study content or progress writes. */
 (() => {
   'use strict';
-  const VERSION='recall-rush-1', KEY='recall-barrage-av-v1';
+  const VERSION='recall-rush-2', KEY='recall-barrage-av-v1';
   const scriptURL=document.currentScript?.src || location.href;
   const musicURL=new URL('assets/audio/recall-rush-loop.mp3',scriptURL).href;
   const reducedQuery=matchMedia('(prefers-reduced-motion: reduce)');
@@ -14,11 +14,12 @@
   let bits=[],rings=[],labels=[],settingsTrigger=null;
   const counts={},recent={},timers=new Set();
   const gentle=()=>reducedQuery.matches||prefs.motion==='gentle';
+  const studyCombo=()=>{const value=window.StudyDemo?.state?.().combo;return Number.isFinite(value)?value:parseInt(document.getElementById('comboValue')?.textContent||'0',10)||0;};
   const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(prefs));}catch{}};
   function smooth(node,value,seconds=.08){if(!context||!node)return;node.gain.cancelScheduledValues(context.currentTime);node.gain.setTargetAtTime(value,context.currentTime,seconds);}
   function levels(){smooth(master,enabled&&!paused&&!document.hidden?1:0);smooth(musicGain,prefs.music*(performance.now()<duckUntil?.45:1));smooth(sfxGain,prefs.sfx);}
   function timeout(fn,ms){const id=setTimeout(()=>{timers.delete(id);fn();},ms);timers.add(id);return id;}
-  function clearTimers(){for(const id of timers)clearTimeout(id);timers.clear();}
+  function clearTimers(){for(const id of timers)clearTimeout(id);timers.clear();document.getElementById('studyPanel')?.classList.remove('fx-confirm');}
   function setNotice(message){if(notice)notice.textContent=message;}
   function unlock(){
     if(!enabled)return;
@@ -69,15 +70,15 @@
   function announce(title,sub='',color='mint'){if(!banner)return;banner.replaceChildren();const b=document.createElement('b'),small=document.createElement('span');b.textContent=title;small.textContent=sub;banner.append(b,small);banner.dataset.color=color;banner.classList.remove('show');void banner.offsetWidth;banner.classList.add('show');banner.dataset.until=String(performance.now()+1600);}
   function emit(name,detail={}){
     const now=performance.now();if(now-(recent[name]??-10000)<(name==='hit'?200:65))return;recent[name]=now;counts[name]=(counts[name]||0)+1;
-    if(name==='start'){combo=parseInt(document.getElementById('comboValue')?.textContent||'0',10)||0;bits=[];rings=[];labels=[];announce('RECALL RUSH','피하면서, 하나씩 떠올려.');}
+    if(name==='start'){combo=studyCombo();bits=[];rings=[];labels=[];announce('RECALL RUSH','피하면서, 하나씩 떠올려.');}
     if(name==='correct'){
-      combo=Number(detail.combo)||combo+1;detail={...detail,combo};const p=point();ring(p.x,p.y,'#a4ffe0',65);particles(width*.5,height*.27,'#eaff97',22);floating('기억 반격!',width*.5,height*.43,'#eaff97');
+      combo=Number.isFinite(detail.combo)?detail.combo:combo+1;detail={...detail,combo};const p=point();ring(p.x,p.y,'#a4ffe0',65);particles(width*.5,height*.27,'#eaff97',22);floating('기억 반격!',width*.5,height*.43,'#eaff97');
       document.getElementById('studyPanel')?.classList.add('fx-confirm');timeout(()=>document.getElementById('studyPanel')?.classList.remove('fx-confirm'),450);
-      if(combo>=3&&(combo===3||combo===5||combo%10===0))timeout(()=>emit('combo',{combo}),110);
+      if(combo>=3&&(combo===3||combo===5||combo%10===0)){const streak=combo;timeout(()=>{if(studyCombo()>=streak)emit('combo',{combo:streak});},110);}
     }
     if(name==='combo'){announce(`${detail.combo||combo} 연속 회상!`,(detail.combo||combo)>=10?'기억이 쌓이고 있어!':'좋아, 리듬 탔어!','gold');particles(width*.5,height*.35,'#ffe493',36);ring(width*.5,height*.35,'#ffe493',130);}
     if(name==='dash'){const p=point();ring(p.x,p.y,'#98eaff',45);particles(p.x,p.y,'#98eaff',9);}
-    if(name==='hit'){const p=point();ring(p.x,p.y,'#ff91aa',34);combo=Number(document.getElementById('comboValue')?.textContent.replace(/\D/g,''))||combo;}
+    if(name==='hit'){const p=point();ring(p.x,p.y,'#ff91aa',34);combo=studyCombo();}
     if(name==='miss'){combo=0;floating('다시 만나면 기억할 거야',width*.5,height*.52,'#ffc78f');}
     if(name==='recover'){announce('다시 집중!','회상은 계속된다.');const p=point();ring(p.x,p.y,'#a4ffe0',110);particles(p.x,p.y,'#a4ffe0',28);}
     if(name==='phase')announce(`PHASE ${detail.phase||2}`,'탄막은 거세져도, 기억은 선명하게.','ice');
@@ -106,10 +107,10 @@
     const api=window.Barrage;if(!api||api.__recallFX)return;Object.defineProperty(api,'__recallFX',{value:true});
     const original={start:api.start,stop:api.stop,pause:api.pause,strike:api.strike,setSound:api.setSound};
     api.setSound=value=>{original.setSound(false);setEnabled(value);};
-    api.start=options=>{clearTimers();const state=original.start(options);active=true;paused=false;combo=0;previousState=state;if(track)track.currentTime=0;unlock();syncMusic();emit('start');return state;};
+    api.start=options=>{clearTimers();const state=original.start(options);active=true;paused=false;previousState=state;if(track)track.currentTime=0;unlock();syncMusic();emit('start');return state;};
     api.stop=()=>{const state=original.stop();active=false;clearTimers();syncMusic();return state;};
     api.pause=value=>{const state=original.pause(value);paused=state.paused;if(paused){clearTimers();bits=[];rings=[];labels=[];}else unlock();syncMusic();return state;};
-    api.strike=power=>{const result=original.strike(power);if(result)emit('correct',{power});return result;};
+    api.strike=power=>{const result=original.strike(power);if(result)emit('correct',{power,combo:studyCombo()});return result;};
   }
   function init(){
     wrap=document.querySelector('.arena-wrap');if(wrap){canvas=document.createElement('canvas');canvas.className='recall-fx-canvas';canvas.setAttribute('aria-hidden','true');wrap.append(canvas);paint=canvas.getContext('2d');banner=document.createElement('div');banner.className='recall-fx-banner';banner.setAttribute('aria-hidden','true');wrap.append(banner);new ResizeObserver(resize).observe(wrap);resize();}
@@ -123,6 +124,7 @@
     settings.querySelector('.av-close').addEventListener('click',close);
     for(const parent of [document.querySelector('.top-actions'),document.querySelector('.saved-record')])if(parent){const b=document.createElement('button');b.type='button';b.className=parent.matches('.top-actions')?'icon-button av-open':'text-button av-title-open';b.dataset.avOpen='';b.textContent='음악·연출';b.setAttribute('aria-controls',settings.id);b.setAttribute('aria-expanded','false');b.addEventListener('click',open);parent.append(b);}
     // Settings do not change combat, recall progress, or game rules.
+    for(const b of document.querySelectorAll('[data-av-open],#soundBtn'))b.addEventListener('keydown',e=>{if(['Enter','NumpadEnter','Space'].includes(e.code))e.stopPropagation();});
     settings.addEventListener('keydown',e=>{e.stopPropagation();if(e.code==='Escape'){e.preventDefault();close();}});
     settings.addEventListener('pointerdown',e=>e.stopPropagation());
     document.addEventListener('pointerdown',e=>{if(!settings.hidden&&!settings.contains(e.target)&&!e.target.closest('[data-av-open]'))close();});
