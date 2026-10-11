@@ -1,0 +1,939 @@
+{
+  "version": "cc-full-20261011-v1",
+  "meta": {
+    "ccCount": 61,
+    "commonCount": 17,
+    "substantiveCommonCount": 15,
+    "caseCount": 83,
+    "cardCount": 3578,
+    "oneLineCount": 116,
+    "sourceRevision": "44f8907b53237dce",
+    "kindCounts": {
+      "cc-script": 933,
+      "cc-education": 127,
+      "cc-exam": 79,
+      "oneline": 59,
+      "oneline-exam": 57,
+      "cc-differential": 59,
+      "cc-note": 78,
+      "case-diagnosis": 83,
+      "case-differential": 87,
+      "case-reasoning": 83,
+      "case-tests": 83,
+      "case-treatment": 83,
+      "case-education": 166,
+      "case-tests-script": 77,
+      "case-education-script": 125,
+      "case-checklist": 245,
+      "case-exam-checklist": 128,
+      "case-education-checklist": 173,
+      "case-original-script": 514,
+      "case-exam": 86,
+      "case-original-plan": 101,
+      "case-script": 72,
+      "case-treatment-script": 58,
+      "case-vaccination": 22
+    },
+    "levelCounts": {
+      "0": 3314,
+      "core": 116,
+      "1": 133,
+      "3": 4,
+      "2": 11
+    }
+  },
+  "cc": [
+    {
+      "id": "c62",
+      "title": "전체 공통",
+      "cards": 9,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c63",
+      "title": "소화기 공통",
+      "cards": 7,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c1",
+      "title": "급성복통",
+      "cards": 23,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c2",
+      "title": "만성복통",
+      "cards": 17,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c3",
+      "title": "토혈",
+      "cards": 19,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c4",
+      "title": "혈변",
+      "cards": 19,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c5",
+      "title": "구토",
+      "cards": 19,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c6",
+      "title": "변비",
+      "cards": 19,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c7",
+      "title": "설사",
+      "cards": 20,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c8",
+      "title": "황달",
+      "cards": 19,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c64",
+      "title": "순환기 공통",
+      "cards": 4,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c9",
+      "title": "가슴통증",
+      "cards": 20,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c10",
+      "title": "실신",
+      "cards": 20,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c11",
+      "title": "두근거림",
+      "cards": 20,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c65",
+      "title": "호흡기 공통",
+      "cards": 11,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c12",
+      "title": "기침",
+      "cards": 22,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c13",
+      "title": "콧물",
+      "cards": 23,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c14",
+      "title": "코막힘",
+      "cards": 17,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c15",
+      "title": "객혈",
+      "cards": 19,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c16",
+      "title": "호흡곤란",
+      "cards": 23,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c66",
+      "title": "신장 공통",
+      "cards": 13,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c17",
+      "title": "다뇨",
+      "cards": 19,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c18",
+      "title": "핍뇨",
+      "cards": 21,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c19",
+      "title": "혈뇨",
+      "cards": 21,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c67",
+      "title": "비뇨 공통",
+      "cards": 15,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c20",
+      "title": "빈뇨",
+      "cards": 21,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c21",
+      "title": "배뇨통",
+      "cards": 21,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c22",
+      "title": "소변찔끔증",
+      "cards": 18,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c68",
+      "title": "대사 공통",
+      "cards": 8,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c23",
+      "title": "고혈압",
+      "cards": 20,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c24",
+      "title": "이상지질혈증",
+      "cards": 19,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c69",
+      "title": "생활 공통",
+      "cards": 4,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c25",
+      "title": "피로",
+      "cards": 27,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c26",
+      "title": "체중 감소",
+      "cards": 17,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c27",
+      "title": "체중 증가·비만",
+      "cards": 19,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c70",
+      "title": "전신/시진",
+      "cards": 1,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c28",
+      "title": "발열",
+      "cards": 22,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c29",
+      "title": "쉽게 멍이 듦",
+      "cards": 21,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c30",
+      "title": "발진",
+      "cards": 21,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c71",
+      "title": "근골격",
+      "cards": 6,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c31",
+      "title": "관절 통증",
+      "cards": 22,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c32",
+      "title": "목 통증",
+      "cards": 23,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c33",
+      "title": "허리 통증",
+      "cards": 23,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c72",
+      "title": "신경",
+      "cards": 0,
+      "sourceOnlyHeading": true
+    },
+    {
+      "id": "c34",
+      "title": "기억력 저하 치매",
+      "cards": 20,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c35",
+      "title": "어지럼",
+      "cards": 19,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c36",
+      "title": "두통",
+      "cards": 18,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c37",
+      "title": "경련",
+      "cards": 20,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c38",
+      "title": "감각 이상",
+      "cards": 19,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c39",
+      "title": "운동 이상",
+      "cards": 20,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c40",
+      "title": "의식저하",
+      "cards": 30,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c41",
+      "title": "떨림",
+      "cards": 22,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c73",
+      "title": "정신",
+      "cards": 2,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c42",
+      "title": "기분 저하 우울",
+      "cards": 22,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c43",
+      "title": "불안",
+      "cards": 21,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c44",
+      "title": "수면장애",
+      "cards": 25,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c74",
+      "title": "여성 전체 공통",
+      "cards": 11,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c45",
+      "title": "유방통",
+      "cards": 20,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c46",
+      "title": "유방덩이",
+      "cards": 20,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c47",
+      "title": "질분비물",
+      "cards": 19,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c75",
+      "title": "월경 관련 공통",
+      "cards": 3,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c48",
+      "title": "질출혈",
+      "cards": 18,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c49",
+      "title": "무월경",
+      "cards": 21,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c50",
+      "title": "월경통",
+      "cards": 19,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c51",
+      "title": "1분기",
+      "cards": 20,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c52",
+      "title": "3분기",
+      "cards": 20,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c76",
+      "title": "소아 공통",
+      "cards": 6,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c53",
+      "title": "성장발달",
+      "cards": 22,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c54",
+      "title": "예방접종",
+      "cards": 23,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c77",
+      "title": "상담 공통",
+      "cards": 2,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c55",
+      "title": "금주 상담",
+      "cards": 26,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c56",
+      "title": "금연 상담",
+      "cards": 24,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c57",
+      "title": "물질 남용",
+      "cards": 24,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c78",
+      "title": "상담/PPI",
+      "cards": 0,
+      "sourceOnlyHeading": true
+    },
+    {
+      "id": "c58",
+      "title": "나쁜 소식 전하기",
+      "cards": 17,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c59",
+      "title": "가정폭력",
+      "cards": 23,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c60",
+      "title": "성폭력",
+      "cards": 36,
+      "sourceOnlyHeading": false
+    },
+    {
+      "id": "c61",
+      "title": "자살사고",
+      "cards": 28,
+      "sourceOnlyHeading": false
+    }
+  ],
+  "cases": [
+    {
+      "id": "jam-b02-r02-c01-s01",
+      "cc": "가슴통증",
+      "cards": 26
+    },
+    {
+      "id": "jam-b02-r02-c02-s01",
+      "cc": "두근거림",
+      "cards": 24
+    },
+    {
+      "id": "jam-b02-r02-c03-s01",
+      "cc": "실신",
+      "cards": 25
+    },
+    {
+      "id": "jam-b02-r03-c01-s01",
+      "cc": "가슴통증",
+      "cards": 18
+    },
+    {
+      "id": "jam-b02-r03-c01-s02",
+      "cc": "가슴통증",
+      "cards": 17
+    },
+    {
+      "id": "jam-b02-r03-c02-s01",
+      "cc": "두근거림",
+      "cards": 19
+    },
+    {
+      "id": "jam-b02-r03-c03-s01",
+      "cc": "실신",
+      "cards": 19
+    },
+    {
+      "id": "jam-b05-r02-c01-s01",
+      "cc": "급성복통",
+      "cards": 40
+    },
+    {
+      "id": "jam-b05-r02-c02-s01",
+      "cc": "만성복통/소화불량",
+      "cards": 26
+    },
+    {
+      "id": "jam-b05-r02-c03-s01",
+      "cc": "구토",
+      "cards": 28
+    },
+    {
+      "id": "jam-b05-r02-c04-s01",
+      "cc": "황달",
+      "cards": 28
+    },
+    {
+      "id": "jam-b05-r03-c01-s01",
+      "cc": "급성복통",
+      "cards": 26
+    },
+    {
+      "id": "jam-b05-r03-c02-s01",
+      "cc": "만성복통/소화불량",
+      "cards": 20
+    },
+    {
+      "id": "jam-b07-r02-c02-s01",
+      "cc": "설사",
+      "cards": 28
+    },
+    {
+      "id": "jam-b07-r02-c03-s01",
+      "cc": "토혈",
+      "cards": 28
+    },
+    {
+      "id": "jam-b07-r02-c04-s01",
+      "cc": "혈변",
+      "cards": 29
+    },
+    {
+      "id": "jam-b07-r03-c03-s01",
+      "cc": "토혈",
+      "cards": 18
+    },
+    {
+      "id": "jam-b10-r02-c01-s01",
+      "cc": "호흡곤란",
+      "cards": 28
+    },
+    {
+      "id": "jam-b10-r02-c02-s01",
+      "cc": "기침",
+      "cards": 28
+    },
+    {
+      "id": "jam-b10-r02-c03-s01",
+      "cc": "콧물/코막힘",
+      "cards": 28
+    },
+    {
+      "id": "jam-b10-r02-c04-s01",
+      "cc": "객혈",
+      "cards": 28
+    },
+    {
+      "id": "jam-b10-r03-c01-s01",
+      "cc": "호흡곤란",
+      "cards": 19
+    },
+    {
+      "id": "jam-b10-r03-c02-s01",
+      "cc": "기침",
+      "cards": 20
+    },
+    {
+      "id": "jam-b10-r03-c03-s01",
+      "cc": "콧물/코막힘",
+      "cards": 19
+    },
+    {
+      "id": "jam-b10-r04-c01-s01",
+      "cc": "호흡곤란",
+      "cards": 22
+    },
+    {
+      "id": "jam-b10-r04-c04-s01",
+      "cc": "객혈",
+      "cards": 32
+    },
+    {
+      "id": "jam-b14-r02-c01-s01",
+      "cc": "다뇨",
+      "cards": 27
+    },
+    {
+      "id": "jam-b14-r02-c02-s01",
+      "cc": "핍뇨",
+      "cards": 21
+    },
+    {
+      "id": "jam-b14-r02-c03-s01",
+      "cc": "혈뇨",
+      "cards": 28
+    },
+    {
+      "id": "jam-b14-r03-c03-s01",
+      "cc": "혈뇨",
+      "cards": 28
+    },
+    {
+      "id": "jam-b14-r05-c02-s01",
+      "cc": "빈뇨",
+      "cards": 27
+    },
+    {
+      "id": "jam-b14-r06-c02-s01",
+      "cc": "빈뇨",
+      "cards": 21
+    },
+    {
+      "id": "jam-b18-r02-c01-s01",
+      "cc": "고혈압",
+      "cards": 28
+    },
+    {
+      "id": "jam-b18-r02-c02-s01",
+      "cc": "이상지질혈증",
+      "cards": 27
+    },
+    {
+      "id": "jam-b18-r03-c01-s01",
+      "cc": "고혈압",
+      "cards": 21
+    },
+    {
+      "id": "jam-b18-r05-c01-s01",
+      "cc": "피로",
+      "cards": 36
+    },
+    {
+      "id": "jam-b18-r05-c02-s01",
+      "cc": "체중감소",
+      "cards": 30
+    },
+    {
+      "id": "jam-b18-r05-c03-s01",
+      "cc": "체중증가",
+      "cards": 28
+    },
+    {
+      "id": "jam-b18-r06-c03-s01",
+      "cc": "체중증가",
+      "cards": 19
+    },
+    {
+      "id": "jam-b21-r02-c01-s01",
+      "cc": "발열",
+      "cards": 29
+    },
+    {
+      "id": "jam-b21-r02-c02-s01",
+      "cc": "쉽게멍",
+      "cards": 28
+    },
+    {
+      "id": "jam-b21-r02-c03-s01",
+      "cc": "피부발진",
+      "cards": 27
+    },
+    {
+      "id": "jam-b23-r02-c01-s01",
+      "cc": "관절통/부기",
+      "cards": 32
+    },
+    {
+      "id": "jam-b23-r02-c02-s01",
+      "cc": "목통증",
+      "cards": 28
+    },
+    {
+      "id": "jam-b23-r02-c03-s01",
+      "cc": "허리통증",
+      "cards": 28
+    },
+    {
+      "id": "jam-b27-r02-c01-s01",
+      "cc": "어지럼",
+      "cards": 28
+    },
+    {
+      "id": "jam-b27-r02-c02-s01",
+      "cc": "두통",
+      "cards": 24
+    },
+    {
+      "id": "jam-b27-r02-c03-s01",
+      "cc": "경련",
+      "cards": 28
+    },
+    {
+      "id": "jam-b27-r03-c02-s01",
+      "cc": "두통",
+      "cards": 21
+    },
+    {
+      "id": "jam-b27-r03-c03-s01",
+      "cc": "경련",
+      "cards": 21
+    },
+    {
+      "id": "jam-b27-r05-c01-s01",
+      "cc": "근력/감각이상",
+      "cards": 33
+    },
+    {
+      "id": "jam-b27-r05-c02-s01",
+      "cc": "떨림/운동이상",
+      "cards": 28
+    },
+    {
+      "id": "jam-b27-r05-c03-s01",
+      "cc": "의식장애",
+      "cards": 28
+    },
+    {
+      "id": "jam-b27-r06-c01-s01",
+      "cc": "근력/감각이상",
+      "cards": 20
+    },
+    {
+      "id": "jam-b29-r02-c01-s01",
+      "cc": "기분변화",
+      "cards": 29
+    },
+    {
+      "id": "jam-b29-r02-c02-s01",
+      "cc": "수면장애",
+      "cards": 36
+    },
+    {
+      "id": "jam-b29-r02-c03-s01",
+      "cc": "기억력저하",
+      "cards": 27
+    },
+    {
+      "id": "jam-b29-r02-c04-s01",
+      "cc": "불안",
+      "cards": 27
+    },
+    {
+      "id": "jam-b29-r03-c04-s01",
+      "cc": "불안",
+      "cards": 21
+    },
+    {
+      "id": "jam-b32-r02-c01-s01",
+      "cc": "유방덩이/유방통",
+      "cards": 25
+    },
+    {
+      "id": "jam-b32-r02-c02-s01",
+      "cc": "질분비물",
+      "cards": 30
+    },
+    {
+      "id": "jam-b32-r02-c03-s01",
+      "cc": "질출혈(월경과다)",
+      "cards": 29
+    },
+    {
+      "id": "jam-b32-r03-c01-s01",
+      "cc": "유방덩이/유방통",
+      "cards": 18
+    },
+    {
+      "id": "jam-b32-r03-c03-s01",
+      "cc": "질출혈(월경과다)",
+      "cards": 26
+    },
+    {
+      "id": "jam-b35-r02-c01-s01",
+      "cc": "무월경",
+      "cards": 20
+    },
+    {
+      "id": "jam-b35-r02-c02-s01",
+      "cc": "월경통",
+      "cards": 28
+    },
+    {
+      "id": "jam-b35-r02-c03-s01",
+      "cc": "산전진찰",
+      "cards": 31
+    },
+    {
+      "id": "jam-b35-r03-c01-s01",
+      "cc": "무월경",
+      "cards": 19
+    },
+    {
+      "id": "jam-b35-r03-c03-s01",
+      "cc": "산전진찰",
+      "cards": 22
+    },
+    {
+      "id": "jam-b37-r02-c01-s01",
+      "cc": "성장지연",
+      "cards": 33
+    },
+    {
+      "id": "jam-b37-r02-c02-s01",
+      "cc": "발달지연",
+      "cards": 26
+    },
+    {
+      "id": "jam-b37-r02-c03-s01",
+      "cc": "예방접종",
+      "cards": 34
+    },
+    {
+      "id": "jam-b37-r03-c03-s01",
+      "cc": "예방접종",
+      "cards": 30
+    },
+    {
+      "id": "jam-b40-r02-c01-s01",
+      "cc": "자살",
+      "cards": 30
+    },
+    {
+      "id": "jam-b40-r02-c02-s01",
+      "cc": "나소전",
+      "cards": 27
+    },
+    {
+      "id": "jam-b40-r02-c03-s01",
+      "cc": "가정폭력",
+      "cards": 27
+    },
+    {
+      "id": "jam-b40-r02-c04-s01",
+      "cc": "성폭력",
+      "cards": 30
+    },
+    {
+      "id": "jam-b40-r03-c01-s01",
+      "cc": "자살",
+      "cards": 22
+    },
+    {
+      "id": "jam-b40-r05-c01-s01",
+      "cc": "자살",
+      "cards": 25
+    },
+    {
+      "id": "jam-b43-r02-c01-s01",
+      "cc": "금주상담",
+      "cards": 29
+    },
+    {
+      "id": "jam-b43-r02-c02-s01",
+      "cc": "금연상담",
+      "cards": 31
+    },
+    {
+      "id": "jam-b43-r02-c03-s01",
+      "cc": "물질오남용",
+      "cards": 30
+    },
+    {
+      "id": "jam-b43-r03-c03-s01",
+      "cc": "물질오남용",
+      "cards": 20
+    }
+  ],
+  "notes": [
+    "CC 61개와 공통 구분17개를 모두 점검했습니다. 신경/상담PPI의 공통 구분2개는 제목뿐이며 문제를 만들지 않았습니다.",
+    "한줄 대본 원문이 있는59개CC를 사용합니다. 신체진찰 한줄은57개입니다. 없는 문장을 새로 만들지 않습니다.",
+    "모든83개증례를 포함합니다. 상세 복기가 없는2개와 단서가 빈약한7개는 원문에 있는 내용만 사용합니다.",
+    "독립OSCE 술기자료9개는 제외합니다. CC 내 신체진찰·필요시 진찰항목은 포함합니다.",
+    "사용자의 자기확인 기록이며 자동채점이 아닙니다. 진행은 브라우저에만 저장됩니다."
+  ]
+}
