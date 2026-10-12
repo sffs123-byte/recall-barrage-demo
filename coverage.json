@@ -1,21 +1,20 @@
 {
-  "version": "cc-full-20261011-v1",
+  "version": "cc-sidequest-20261012-v3",
   "meta": {
     "ccCount": 61,
     "commonCount": 17,
     "substantiveCommonCount": 15,
     "caseCount": 83,
-    "cardCount": 3578,
+    "cardCount": 3413,
     "oneLineCount": 116,
     "sourceRevision": "44f8907b53237dce",
     "kindCounts": {
-      "cc-script": 933,
-      "cc-education": 127,
-      "cc-exam": 79,
+      "cc-script": 831,
+      "cc-education": 111,
+      "cc-exam": 60,
       "oneline": 59,
       "oneline-exam": 57,
       "cc-differential": 59,
-      "cc-note": 78,
       "case-diagnosis": 83,
       "case-differential": 87,
       "case-reasoning": 83,
@@ -32,15 +31,18 @@
       "case-original-plan": 101,
       "case-script": 72,
       "case-treatment-script": 58,
-      "case-vaccination": 22
+      "case-vaccination": 22,
+      "cc-emphasis": 50
     },
     "levelCounts": {
-      "0": 3314,
-      "core": 116,
-      "1": 133,
-      "3": 4,
-      "2": 11
-    }
+      "0": 3242,
+      "1": 43,
+      "2": 9,
+      "3": 3,
+      "core": 116
+    },
+    "commentQuizCount": 0,
+    "emphasisGroupCount": 50
   },
   "cc": [
     {
@@ -58,49 +60,49 @@
     {
       "id": "c1",
       "title": "급성복통",
-      "cards": 23,
+      "cards": 83,
       "sourceOnlyHeading": false
     },
     {
       "id": "c2",
       "title": "만성복통",
-      "cards": 17,
+      "cards": 62,
       "sourceOnlyHeading": false
     },
     {
       "id": "c3",
       "title": "토혈",
-      "cards": 19,
+      "cards": 65,
       "sourceOnlyHeading": false
     },
     {
       "id": "c4",
       "title": "혈변",
-      "cards": 19,
+      "cards": 46,
       "sourceOnlyHeading": false
     },
     {
       "id": "c5",
       "title": "구토",
-      "cards": 19,
+      "cards": 47,
       "sourceOnlyHeading": false
     },
     {
       "id": "c6",
       "title": "변비",
-      "cards": 19,
+      "cards": 28,
       "sourceOnlyHeading": false
     },
     {
       "id": "c7",
       "title": "설사",
-      "cards": 20,
+      "cards": 47,
       "sourceOnlyHeading": false
     },
     {
       "id": "c8",
       "title": "황달",
-      "cards": 19,
+      "cards": 44,
       "sourceOnlyHeading": false
     },
     {
@@ -112,37 +114,37 @@
     {
       "id": "c9",
       "title": "가슴통증",
-      "cards": 20,
+      "cards": 80,
       "sourceOnlyHeading": false
     },
     {
       "id": "c10",
       "title": "실신",
-      "cards": 20,
+      "cards": 63,
       "sourceOnlyHeading": false
     },
     {
       "id": "c11",
       "title": "두근거림",
-      "cards": 20,
+      "cards": 61,
       "sourceOnlyHeading": false
     },
     {
       "id": "c65",
       "title": "호흡기 공통",
-      "cards": 11,
+      "cards": 9,
       "sourceOnlyHeading": false
     },
     {
       "id": "c12",
       "title": "기침",
-      "cards": 22,
+      "cards": 64,
       "sourceOnlyHeading": false
     },
     {
       "id": "c13",
       "title": "콧물",
-      "cards": 23,
+      "cards": 64,
       "sourceOnlyHeading": false
     },
     {
@@ -154,13 +156,13 @@
     {
       "id": "c15",
       "title": "객혈",
-      "cards": 19,
+      "cards": 78,
       "sourceOnlyHeading": false
     },
     {
       "id": "c16",
       "title": "호흡곤란",
-      "cards": 23,
+      "cards": 86,
       "sourceOnlyHeading": false
     },
     {
@@ -172,19 +174,19 @@
     {
       "id": "c17",
       "title": "다뇨",
-      "cards": 19,
+      "cards": 41,
       "sourceOnlyHeading": false
     },
     {
       "id": "c18",
       "title": "핍뇨",
-      "cards": 21,
+      "cards": 39,
       "sourceOnlyHeading": false
     },
     {
       "id": "c19",
       "title": "혈뇨",
-      "cards": 21,
+      "cards": 75,
       "sourceOnlyHeading": false
     },
     {
@@ -196,7 +198,7 @@
     {
       "id": "c20",
       "title": "빈뇨",
-      "cards": 21,
+      "cards": 68,
       "sourceOnlyHeading": false
     },
     {
@@ -208,7 +210,7 @@
     {
       "id": "c22",
       "title": "소변찔끔증",
-      "cards": 18,
+      "cards": 26,
       "sourceOnlyHeading": false
     },
     {
@@ -220,13 +222,13 @@
     {
       "id": "c23",
       "title": "고혈압",
-      "cards": 20,
+      "cards": 67,
       "sourceOnlyHeading": false
     },
     {
       "id": "c24",
       "title": "이상지질혈증",
-      "cards": 19,
+      "cards": 45,
       "sourceOnlyHeading": false
     },
     {
@@ -238,19 +240,19 @@
     {
       "id": "c25",
       "title": "피로",
-      "cards": 27,
+      "cards": 58,
       "sourceOnlyHeading": false
     },
     {
       "id": "c26",
       "title": "체중 감소",
-      "cards": 17,
+      "cards": 45,
       "sourceOnlyHeading": false
     },
     {
       "id": "c27",
       "title": "체중 증가·비만",
-      "cards": 19,
+      "cards": 64,
       "sourceOnlyHeading": false
     },
     {
@@ -262,19 +264,19 @@
     {
       "id": "c28",
       "title": "발열",
-      "cards": 22,
+      "cards": 46,
       "sourceOnlyHeading": false
     },
     {
       "id": "c29",
       "title": "쉽게 멍이 듦",
-      "cards": 21,
+      "cards": 48,
       "sourceOnlyHeading": false
     },
     {
       "id": "c30",
       "title": "발진",
-      "cards": 21,
+      "cards": 46,
       "sourceOnlyHeading": false
     },
     {
@@ -286,19 +288,19 @@
     {
       "id": "c31",
       "title": "관절 통증",
-      "cards": 22,
+      "cards": 51,
       "sourceOnlyHeading": false
     },
     {
       "id": "c32",
       "title": "목 통증",
-      "cards": 23,
+      "cards": 50,
       "sourceOnlyHeading": false
     },
     {
       "id": "c33",
       "title": "허리 통증",
-      "cards": 23,
+      "cards": 49,
       "sourceOnlyHeading": false
     },
     {
@@ -310,49 +312,49 @@
     {
       "id": "c34",
       "title": "기억력 저하 치매",
-      "cards": 20,
+      "cards": 46,
       "sourceOnlyHeading": false
     },
     {
       "id": "c35",
       "title": "어지럼",
-      "cards": 19,
+      "cards": 45,
       "sourceOnlyHeading": false
     },
     {
       "id": "c36",
       "title": "두통",
-      "cards": 18,
+      "cards": 62,
       "sourceOnlyHeading": false
     },
     {
       "id": "c37",
       "title": "경련",
-      "cards": 20,
+      "cards": 68,
       "sourceOnlyHeading": false
     },
     {
       "id": "c38",
       "title": "감각 이상",
-      "cards": 19,
+      "cards": 72,
       "sourceOnlyHeading": false
     },
     {
       "id": "c39",
       "title": "운동 이상",
-      "cards": 20,
+      "cards": 19,
       "sourceOnlyHeading": false
     },
     {
       "id": "c40",
       "title": "의식저하",
-      "cards": 30,
+      "cards": 46,
       "sourceOnlyHeading": false
     },
     {
       "id": "c41",
       "title": "떨림",
-      "cards": 22,
+      "cards": 46,
       "sourceOnlyHeading": false
     },
     {
@@ -364,19 +366,19 @@
     {
       "id": "c42",
       "title": "기분 저하 우울",
-      "cards": 22,
+      "cards": 47,
       "sourceOnlyHeading": false
     },
     {
       "id": "c43",
       "title": "불안",
-      "cards": 21,
+      "cards": 66,
       "sourceOnlyHeading": false
     },
     {
       "id": "c44",
       "title": "수면장애",
-      "cards": 25,
+      "cards": 53,
       "sourceOnlyHeading": false
     },
     {
@@ -388,19 +390,19 @@
     {
       "id": "c45",
       "title": "유방통",
-      "cards": 20,
+      "cards": 60,
       "sourceOnlyHeading": false
     },
     {
       "id": "c46",
       "title": "유방덩이",
-      "cards": 20,
+      "cards": 17,
       "sourceOnlyHeading": false
     },
     {
       "id": "c47",
       "title": "질분비물",
-      "cards": 19,
+      "cards": 49,
       "sourceOnlyHeading": false
     },
     {
@@ -412,31 +414,31 @@
     {
       "id": "c48",
       "title": "질출혈",
-      "cards": 18,
+      "cards": 73,
       "sourceOnlyHeading": false
     },
     {
       "id": "c49",
       "title": "무월경",
-      "cards": 21,
+      "cards": 58,
       "sourceOnlyHeading": false
     },
     {
       "id": "c50",
       "title": "월경통",
-      "cards": 19,
+      "cards": 45,
       "sourceOnlyHeading": false
     },
     {
       "id": "c51",
       "title": "1분기",
-      "cards": 20,
+      "cards": 72,
       "sourceOnlyHeading": false
     },
     {
       "id": "c52",
       "title": "3분기",
-      "cards": 20,
+      "cards": 19,
       "sourceOnlyHeading": false
     },
     {
@@ -448,13 +450,13 @@
     {
       "id": "c53",
       "title": "성장발달",
-      "cards": 22,
+      "cards": 76,
       "sourceOnlyHeading": false
     },
     {
       "id": "c54",
       "title": "예방접종",
-      "cards": 23,
+      "cards": 81,
       "sourceOnlyHeading": false
     },
     {
@@ -466,19 +468,19 @@
     {
       "id": "c55",
       "title": "금주 상담",
-      "cards": 26,
+      "cards": 48,
       "sourceOnlyHeading": false
     },
     {
       "id": "c56",
       "title": "금연 상담",
-      "cards": 24,
+      "cards": 52,
       "sourceOnlyHeading": false
     },
     {
       "id": "c57",
       "title": "물질 남용",
-      "cards": 24,
+      "cards": 74,
       "sourceOnlyHeading": false
     },
     {
@@ -490,25 +492,25 @@
     {
       "id": "c58",
       "title": "나쁜 소식 전하기",
-      "cards": 17,
+      "cards": 43,
       "sourceOnlyHeading": false
     },
     {
       "id": "c59",
       "title": "가정폭력",
-      "cards": 23,
+      "cards": 45,
       "sourceOnlyHeading": false
     },
     {
       "id": "c60",
       "title": "성폭력",
-      "cards": 36,
+      "cards": 57,
       "sourceOnlyHeading": false
     },
     {
       "id": "c61",
       "title": "자살사고",
-      "cards": 28,
+      "cards": 100,
       "sourceOnlyHeading": false
     }
   ],
@@ -935,5 +937,11 @@
     "모든83개증례를 포함합니다. 상세 복기가 없는2개와 단서가 빈약한7개는 원문에 있는 내용만 사용합니다.",
     "독립OSCE 술기자료9개는 제외합니다. CC 내 신체진찰·필요시 진찰항목은 포함합니다.",
     "사용자의 자기확인 기록이며 자동채점이 아닙니다. 진행은 브라우저에만 저장됩니다."
-  ]
+  ],
+  "changes": {
+    "removedCommentQuizzes": 78,
+    "groupedSourceRows": 137,
+    "emphasisGroups": 50,
+    "keptOneLines": 116
+  }
 }

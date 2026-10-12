@@ -52,7 +52,9 @@
   }
   function chord(notes,speed=.06,duration=.22,volume=.08){notes.forEach((n,i)=>note(n,i*speed,duration,volume,'triangle'));}
   function sound(name,detail){
-    if(name==='start')chord([261.63,329.63,392,523.25],.065,.24,.085);
+    if(name==='attack'){note([440,150,900][detail.weapon||0],0,.1,.035,'triangle');}
+    else if(name==='skill'){chord(detail.weapon===1?[130,196,261]:detail.weapon===2?[880,1100,1320]:[330,440,660],.045,.2,.065);}
+    else if(name==='start')chord([261.63,329.63,392,523.25],.065,.24,.085);
     else if(name==='correct'){const shift=Math.min(detail.combo||1,8)*9;chord([523.25+shift,659.25+shift,783.99+shift],.045,.19,.07);}
     else if(name==='combo'){chord([523.25,659.25,783.99,1046.5],.07,.32,.075);note(130.81,0,.24,.10);}
     else if(name==='dash'){note(190,0,.13,.065,'sine',880);note(700,.035,.09,.025,'triangle',240);}
@@ -70,7 +72,8 @@
   function announce(title,sub='',color='mint'){if(!banner)return;banner.replaceChildren();const b=document.createElement('b'),small=document.createElement('span');b.textContent=title;small.textContent=sub;banner.append(b,small);banner.dataset.color=color;banner.classList.remove('show');void banner.offsetWidth;banner.classList.add('show');banner.dataset.until=String(performance.now()+1600);}
   function emit(name,detail={}){
     const now=performance.now();if(now-(recent[name]??-10000)<(name==='hit'?200:65))return;recent[name]=now;counts[name]=(counts[name]||0)+1;
-    if(name==='start'){combo=studyCombo();bits=[];rings=[];labels=[];announce('RECALL RUSH','피하면서, 하나씩 떠올려.');}
+    if(name==='start'){combo=studyCombo();bits=[];rings=[];labels=[];announce('RECALL QUEST','점프하고, 하나씩 떠올려.');}
+    if(name==='skill'){const p=point();ring(p.x,p.y,['#a4ffe0','#ffc17e','#d2c1ff','#f2e9a6'][detail.weapon||0],100);}
     if(name==='correct'){
       combo=Number.isFinite(detail.combo)?detail.combo:combo+1;detail={...detail,combo};const p=point();ring(p.x,p.y,'#a4ffe0',65);particles(width*.5,height*.27,'#eaff97',22);floating('기억 반격!',width*.5,height*.43,'#eaff97');
       document.getElementById('studyPanel')?.classList.add('fx-confirm');timeout(()=>document.getElementById('studyPanel')?.classList.remove('fx-confirm'),450);
@@ -81,7 +84,7 @@
     if(name==='hit'){const p=point();ring(p.x,p.y,'#ff91aa',34);combo=studyCombo();}
     if(name==='miss'){combo=0;floating('다시 만나면 기억할 거야',width*.5,height*.52,'#ffc78f');}
     if(name==='recover'){announce('다시 집중!','회상은 계속된다.');const p=point();ring(p.x,p.y,'#a4ffe0',110);particles(p.x,p.y,'#a4ffe0',28);}
-    if(name==='phase')announce(`PHASE ${detail.phase||2}`,'탄막은 거세져도, 기억은 선명하게.','ice');
+    if(name==='phase')announce(`PHASE ${detail.phase||2}`,'보스가 강해져도, 기억은 선명하게.','ice');
     if(name==='complete'){announce('RECALL COMPLETE','오늘의 회상을 해냈어!','gold');particles(width*.5,height*.4,'#ffe493',60);}
     if(['correct','combo','complete','reveal'].includes(name)){duckUntil=now+(name==='complete'?1300:480);levels();}
     sound(name,detail);
@@ -113,6 +116,8 @@
     api.strike=power=>{const result=original.strike(power);if(result)emit('correct',{power,combo:studyCombo()});return result;};
   }
   function init(){
+    window.addEventListener('sidequest:skill',e=>emit('skill',e.detail));
+    window.addEventListener('sidequest:attack',e=>emit('attack',e.detail));
     wrap=document.querySelector('.arena-wrap');if(wrap){canvas=document.createElement('canvas');canvas.className='recall-fx-canvas';canvas.setAttribute('aria-hidden','true');wrap.append(canvas);paint=canvas.getContext('2d');banner=document.createElement('div');banner.className='recall-fx-banner';banner.setAttribute('aria-hidden','true');wrap.append(banner);new ResizeObserver(resize).observe(wrap);resize();}
     settings=document.createElement('section');settings.className='recall-av-panel';settings.id='recallAVPanel';settings.hidden=true;settings.setAttribute('aria-label','음악과 연출 설정');
     settings.innerHTML='<div class="av-heading"><b>나만의 게임 리듬</b><button type="button" class="av-close" aria-label="음악과 연출 설정 닫기">×</button></div><label>음악 <input type="range" min="0" max="100" step="5" data-av="music" aria-label="배경음악 음량"><output></output></label><label>효과음 <input type="range" min="0" max="100" step="5" data-av="sfx" aria-label="효과음 음량"><output></output></label><label>연출 <select aria-label="시각 효과 강도"><option value="full">생동감 있게</option><option value="gentle">은은하게</option></select></label><p class="av-note" role="status">소리 ON을 누르면 음악과 효과음이 시작돼요.</p>';

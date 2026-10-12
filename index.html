@@ -4,27 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b121c">
-  <meta name="description" content="CC 전범위의 한줄 대본, 강조 키워드, 신체진찰과 증례를 탄막을 피하면서 스스로 떠올리는 무제한 회상 게임. OSCE는 제외합니다.">
-  <title>국시 탄막: CC 전범위 회상</title>
-  <link rel="stylesheet" href="style.css?v=2">
-  <link rel="stylesheet" href="audio-fx.css?v=recall-rush-1">
-  <script defer src="deck.js?v=2"></script>
-  <script defer src="arena.js?v=2"></script>
-  <script defer src="audio-fx.js?v=recall-rush-2"></script>
-  <script defer src="study.js?v=2"></script>
+  <meta name="description" content="CC 전범위의 한줄 대본, CC별 내 강조 회상, 신체진찰과 증례를 횡스크롤 전투를 하며 스스로 떠올리는 무제한 회상 게임. OSCE는 제외합니다.">
+  <title>국시 모험: CC 전범위 회상</title>
+  <link rel="stylesheet" href="style.css?v=sidequest-3">
+  <link rel="stylesheet" href="audio-fx.css?v=sidequest-3">
+  <script defer src="deck.js?v=sidequest-3"></script>
+  <script defer src="arena.js?v=sidequest-3"></script>
+  <script defer src="audio-fx.js?v=sidequest-3"></script>
+  <script defer src="study.js?v=sidequest-3"></script>
 </head>
 <body>
   <main class="cabinet">
     <header class="topbar">
-      <div class="brand"><span class="brand-mark" aria-hidden="true">국</span><span>국시 <b>탄막</b><small>생각하면서 피해</small></span></div>
+      <div class="brand"><span class="brand-mark" aria-hidden="true">국</span><span>국시 <b>모험</b><small>밤의 실기숲</small></span></div>
       <div class="top-actions">
-        <span class="trial-label">ALL CC / ENDLESS</span>
+        <span class="trial-label">SIDE QUEST / ALL CC</span>
         <button type="button" class="icon-button" id="soundBtn" aria-label="효과음 켜기 또는 끄기" aria-pressed="false">소리 OFF</button>
         <button type="button" class="icon-button" id="pauseBtn" disabled aria-label="일시정지 또는 계속">일시정지</button>
       </div>
     </header>
 
-    <section class="game-shell" aria-label="국시 탄막 게임">
+    <section class="game-shell" aria-label="국시 모험 게임">
       <div class="hud" aria-label="게임 현황">
         <div class="hud-item health-stat"><span>집중력</span><strong id="healthValue">100</strong></div>
         <div class="hud-item"><span>기억 점수</span><strong id="scoreValue">0</strong></div>
@@ -35,9 +35,10 @@
       </div>
 
       <div class="playfield">
-        <section class="arena-wrap" aria-label="탄막 회피 공간">
-          <canvas id="arena" width="900" height="700" tabindex="0" aria-label="이동키 또는 화면 아래 조이스틱으로 탄막을 피하세요"></canvas>
-          <div class="arena-tag"><span class="live-dot" aria-hidden="true"></span>생각할 때도, 계속 피해!</div>
+        <section class="arena-wrap" aria-label="횡스크롤 전투 공간">
+          <canvas id="arena" width="900" height="700" tabindex="0" aria-label="이동키 또는 화면 아래 조이스틱으로 좌우 이동하고 점프하세요"></canvas>
+          <div class="battle-hud"><span>밤의 실기숲</span><div><span id="bossStatus">신유 · ROUND 1</span><div class="boss-hp"><i id="bossHpFill"></i></div></div></div><div id="bossAlert" class="boss-alert" aria-live="off">이단 점프로 발판을 올라가 봐!</div>
+          <div class="arena-tag"><span class="live-dot" aria-hidden="true"></span>이단 점프 · 발판 이동 · 8가지 보스 패턴</div>
           <div class="paused-label" aria-hidden="true">잠깐 숨 고르기<span>일시정지 버튼 / P로 계속</span></div>
         </section>
 
@@ -59,43 +60,52 @@
         </section>
       </div>
 
-      <div class="control-strip">
-        <div class="desktop-controls"><span><kbd>WASD</kbd> / <kbd>↑↓←→</kbd> 이동</span><span><kbd>Space</kbd> 회피</span><span><kbd>Enter</kbd> 원문 → 떠올렸어</span><span><kbd>2</kbd> / <kbd>⌫</kbd> 놓쳤어</span></div>
-        <div class="touch-controls" aria-label="터치 이동 조작">
-          <div id="joystick" role="group" aria-label="이동 조이스틱"><span class="joystick-cross" aria-hidden="true">+</span><div id="stick"></div><span class="joystick-label">이동</span></div>
-          <div class="touch-hint">왼손은 회피<br><b>오른손은 자기확인</b></div>
-          <button type="button" id="dashBtn" class="dash-button">회피<span>짧게, 빠르게</span></button>
+      <div class="combat-bar" aria-label="무기와 스킬">
+        <div class="weapon-tabs" role="group" aria-label="무기 선택">
+          <button type="button" data-weapon="0" aria-pressed="true">청진기 <kbd>Q</kbd></button>
+          <button type="button" data-weapon="1" aria-pressed="false">DTR 반사망치 <kbd>E</kbd></button>
+          <button type="button" data-weapon="2" aria-pressed="false">펜라이트 <kbd>F</kbd></button>
         </div>
-        <span class="strip-note">시간제한 없음 · 전부 떠올릴 때까지</span>
+        <div class="skill-actions"><button type="button" id="skillBtn">공명 보호막 · X</button><button type="button" id="ultBtn">종합진찰 0%</button></div>
+      </div>
+      <div class="control-strip">
+        <div class="desktop-controls"><span><kbd>← →</kbd> 이동 · <kbd>↓</kbd> 숙이기</span><span><kbd>Space</kbd> 이단 점프</span><span><kbd>Z</kbd> 공격 · <kbd>Shift</kbd> 회피</span><span><kbd>X</kbd> 스킬 · <kbd>C</kbd> 궁극기</span><span><kbd>Enter</kbd> 회상 · <kbd>2</kbd> 놓침</span></div>
+        <div class="touch-controls" aria-label="터치 이동 조작">
+          <div id="joystick" role="group" aria-label="좌우 이동 조이스틱"><span class="joystick-cross" aria-hidden="true">↔</span><div id="stick"></div><span class="joystick-label">좌우 이동</span></div>
+          <button type="button" id="crouchBtn" class="action-button">숙이기</button>
+          <button type="button" id="attackBtn" class="action-button">공격 Z</button>
+          <button type="button" id="jumpBtn" class="action-button jump-button">점프 ↑</button>
+          <button type="button" id="dashBtn" class="action-button">회피 ⇧</button>
+        </div>
       </div>
     </section>
 
     <section id="startScreen" class="overlay start-screen" aria-labelledby="gameTitle">
       <div class="start-art" aria-hidden="true"></div>
       <div class="start-inner">
-        <div class="eyebrow"><span></span> SHINYU’S RECALL BARRAGE</div>
+        <div class="eyebrow"><span></span> SHINYU’S RECALL QUEST</div>
         <p class="edition-line">신유의 압박면접 · CC 전범위</p>
-        <h1 id="gameTitle">국시 탄막<span>전부 떠올릴 <em>때까지.</em></span></h1>
-        <p class="intro">손은 탄막을 피하고.<br>머리는 <strong>네 대본을 꺼내고.</strong></p>
+        <h1 id="gameTitle">국시 모험<span>전부 떠올릴 <em>때까지.</em></span></h1>
+        <p class="intro">발판을 뛰어넘고.<br>머리는 <strong>네 대본을 꺼내고.</strong></p>
         <div class="scope-card">
           <p class="scope-counts"><span>CC <b id="ccCount">—</b></span><span>증례 <b id="caseCount">—</b></span><span>회상 항목 <b id="deckCount">—</b></span></p>
-          <p id="scopeSummary">한줄 · 강조 키워드 · 신체진찰<br>증례 진단 · 감별 · 검사 · 치료 · 교육</p>
+          <p id="scopeSummary">한줄 · CC별 내 강조 회상 · 신체진찰<br>증례 진단 · 감별 · 검사 · 치료 · 교육</p>
           <p class="scope-rule">OSCE 제외 <span>·</span> 놓친 항목은 다시 등장 <span>·</span> 시간제한 없음</p>
         </div>
-        <div class="density-heading">탄막 밀도 <span>학습 내용은 같아요</span></div>
-        <div class="density-options" role="group" aria-label="탄막 밀도 선택">
+        <div class="density-heading">보스 난이도 <span>학습 내용은 같아요</span></div>
+        <div class="density-options" role="group" aria-label="보스 난이도 선택">
           <button type="button" data-density="calm" aria-pressed="false">가볍게<small>손 풀기</small></button>
-          <button type="button" data-density="normal" class="selected" aria-pressed="true">정신없이<small>추천 밀도</small></button>
-          <button type="button" data-density="chaos" aria-pressed="false">대혼란<small>진짜 압박</small></button>
+          <button type="button" data-density="normal" class="selected" aria-pressed="true">본격 모험<small>추천 난이도</small></button>
+          <button type="button" data-density="chaos" aria-pressed="false">압박면접<small>강한 패턴</small></button>
         </div>
         <button type="button" id="startBtn" class="primary">전범위 도전 <span aria-hidden="true">↗</span></button>
         <div class="saved-record">
           <p id="savedProgress">진행은 이 브라우저에 자동 저장돼요.</p>
           <button type="button" id="resetBtn" class="text-button">이 브라우저 기록 초기화</button>
         </div>
-        <p class="live-note"><b>문제·원문 확인 중에도 탄막은 계속됩니다.</b><br>먼저 떠올리고, 원문과 비교해 스스로 확인해요.</p>
+        <p class="live-note"><b>문제·원문 확인 중에도 전투는 계속됩니다.</b><br>먼저 떠올리고, 원문과 비교해 스스로 확인해요.</p>
         <p class="priority-legend" aria-label="학습 중요도 순서"><span class="level-core">한줄 핵심</span><i>›</i><span class="level-three">빨강 3</span><i>›</i><span class="level-two">주황 2</span><i>›</i><span class="level-one">노랑 1</span></p>
-        <p class="start-controls">Enter: 원문 확인 → 떠올렸어·다음 / 2 또는 Backspace: 놓쳤어·다음<br>WASD/방향키 이동 · Space 회피 · P 일시정지<br>모바일: 왼손 조이스틱 + 오른손 자기확인 버튼</p>
+        <p class="start-controls">← → 이동 · Space 이단 점프 · ↓ 숙이기 · Shift 회피<br>Z 공격 · Q/E/F 무기 선택 · X 무기 스킬 · C 종합진찰<br>Enter: 원문 → 떠올렸어 / 2 또는 Backspace: 놓쳤어<br>모바일: 왼손 이동 + 오른손 점프·공격 / 위쪽 무기·스킬 버튼</p>
         <p class="disclaimer">자기회상 학습 게임 · 실제 시험 채점 아님 · CNU 기록과 별도</p>
       </div>
       <div class="art-caption" aria-hidden="true"><span>국시 30년 차의 한마디</span><strong>“다 떠올릴 때까지<br>퇴근은 없다.”</strong></div>

@@ -15,3 +15,6 @@
 @media(max-width:760px){.recall-fx-banner{left:auto;right:8px;top:31px;max-width:49%;padding:5px 8px;transform:translateY(-4px)}.recall-fx-banner.show,.fx-gentle .recall-fx-banner{transform:translateY(0)}.recall-fx-banner b{font-size:13px}.recall-fx-banner span{font-size:7px}}
 @media(prefers-reduced-motion:reduce){.recall-fx-banner{transform:translate(-50%,0)}}
 @media(prefers-reduced-motion:reduce) and (max-width:760px){.recall-fx-banner{transform:none}}
+/* Reward cues do not cover the boss's readable warning strip. */
+.recall-fx-banner{top:122px;padding:6px 12px}.recall-fx-banner b{font-size:17px}.recall-fx-banner span{font-size:9px}
+@media(max-width:760px),(max-height:500px){.recall-fx-banner{top:72px;right:8px;left:auto;max-width:47%;padding:4px 6px;transform:none}.recall-fx-banner.show,.fx-gentle .recall-fx-banner{transform:none}.recall-fx-banner b{font-size:11px}.recall-fx-banner span{display:none}}
